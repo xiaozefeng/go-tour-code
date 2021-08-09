@@ -1,18 +1,21 @@
 package basic
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 // package variable
 var (
-	aa = 4
-	bb = "hello"
-	cc = true
+	home   = os.Getenv("HOME")
+	user   = os.Getenv("USER")
+	gopath = os.Getenv("GOPATH")
 )
 
 // package  const
 const (
-	B = 1 << (10 * iota)
-	KB
+	_  = iota
+	KB = 1 << (10 * iota)
 	MB
 	GB
 	TB
@@ -28,7 +31,7 @@ const (
 var Name = "jack"
 
 func iotaDefine() {
-	fmt.Printf("B=%d, KB=%d, MG=%d, GB=%d, TB=%d\n", B, KB, MB, GB, TB)
+	fmt.Printf("KB=%d, MG=%d, GB=%d, TB=%d\n", KB, MB, GB, TB)
 	fmt.Printf("java=%d, python=%d, golang=%d\n", java, python, golang)
 }
 
@@ -55,7 +58,7 @@ func variableZeroValues() {
 }
 
 func packageVariableDefine() {
-	fmt.Printf("A=%d, B=%s, C=%v", aa, bb, cc)
+	fmt.Printf("home=%s, user=%s, gopath=%s", home, user, gopath)
 }
 
 func types() {
@@ -67,8 +70,3 @@ func types() {
 	// bool
 	// string
 }
-
-
-
-
-
