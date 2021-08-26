@@ -32,7 +32,7 @@ func (e *ErrWriter) Write(p []byte) (int, error) {
 // solution 2
 func WriteResponse(w io.Writer, st Status, headers []Header, body io.Reader) error {
 	ew := &ErrWriter{Writer: w}
-	_, _ = fmt.Fprintf(ew, "HTTP/1.1 %d %d\r\n", st.Code, st.Reason)
+	_, _ = fmt.Fprintf(ew, "HTTP/1.1 %d %s\r\n", st.Code, st.Reason)
 
 	for _, h := range headers {
 		_, _ = fmt.Fprintf(ew, "%s: %s\r\n", h.Key, h.Value)
